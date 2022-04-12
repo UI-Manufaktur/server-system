@@ -14,28 +14,24 @@ void main(string[] args) {
 	debug writeln("SetRouterDefault!()");
   mixin(SetRouterDefault!());
 
-/* 	router
-		.get("/login", &servermodeller.loginPage.request)
-		.get("/logout", &servermodeller.logoutPage.request);
- */
 debug writeln("Setting router");
 router // Pages
 		.get("/system", &uimSystemIndex);
 
-	mixin(AddRoutes!("router", "/modeller/apis", "uimApis"));
-	mixin(AddRoutes!("router", "/modeller/apps", "uimApps"));
-	mixin(AddRoutes!("router", "/modeller/attributes", "uimAttributes"));
-	mixin(AddRoutes!("router", "/modeller/attributeclasses", "uimAttributeClasses"));
-	mixin(AddRoutes!("router", "/modeller/classes", "uimClasses"));
-	mixin(AddRoutes!("router", "/modeller/components", "uimComponents"));
-	mixin(AddRoutes!("router", "/modeller/entityclasses", "uimEntityClasses"));
-	// mixin(AddRoutes!("router", "/modeller/functions", "uimFunctions"));
-	mixin(AddRoutes!("router", "/modeller/interfaces", "uimInterfaces"));
-	mixin(AddRoutes!("router", "/modeller/libraries", "uimLibraries"));
-	mixin(AddRoutes!("router", "/modeller/methods", "uimMethods"));
-	mixin(AddRoutes!("router", "/modeller/models", "uimModels"));
-	mixin(AddRoutes!("router", "/modeller/modules", "uimModules"));
-	mixin(AddRoutes!("router", "/modeller/packages", "uimPackages"));
+	mixin(AddRoutes!("router", "/system/accounts", "uimSystemAccounts"));
+	mixin(AddRoutes!("router", "/system/apps", "uimSystemApps"));
+	mixin(AddRoutes!("router", "/system/groups", "uimSystemGroups"));
+	mixin(AddRoutes!("router", "/system/logins", "uimSystemLogins"));
+	mixin(AddRoutes!("router", "/system/organizations", "uimSystemOrganizations"));
+	mixin(AddRoutes!("router", "/system/passwords", "uimSystemPasswords"));
+	mixin(AddRoutes!("router", "/system/passwordrules", "uimSystemPasswordRules"));
+	mixin(AddRoutes!("router", "/system/requests", "uimSystemRequests"));
+	mixin(AddRoutes!("router", "/system/rights", "uimSystemRights"));
+	mixin(AddRoutes!("router", "/system/roles", "uimSystemRoles"));
+	mixin(AddRoutes!("router", "/system/sessions", "uimSystemSessions"));
+	mixin(AddRoutes!("router", "/system/sites", "uimSystemSites"));
+	mixin(AddRoutes!("router", "/system/tenants", "uimSystemTenants"));
+	mixin(AddRoutes!("router", "/system/users", "uimSystemUsers"));
 
 	router
 		.get("/", &uimIndex)
@@ -50,6 +46,7 @@ router // Pages
 		.post("/login_action", &uimLoginAction)
 		.post("/login2_action", &uimLogin2Action)
 		.post("/sites/select", &uimSiteSelectAction);
+
 
 	debug writeln("Create Database");
 	auto database = ETBBase.importDatabase(JSBFileBase("../../DATABASES/uim"));
