@@ -1,5 +1,5 @@
 import vibe.vibe;
-import servers.modeller;
+import servers.system;
 
 mixin DefaultConfig!("server-system");
 //mixin ReadConfig;
@@ -71,7 +71,7 @@ router // Pages
 	}
 
 	debug writeln("serverModeller.database(database)");
-  serverModeller.database(database);
+  server.database(database);
 	// servermodeller.rootPath(rootPath).registerApp(router); 
 
   mixin(SetHTTP!());
