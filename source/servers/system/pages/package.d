@@ -3,7 +3,11 @@ module servers.system.pages;
 @safe:
 import servers.system;
 
+// Packages
 public import servers.system.pages.system;
+
+// Modules
+public import servers.system.pages.index;
 
 mixin(PageControllerCalls!("uimSystemAccounts", "SystemAccount", "server"));
 mixin(PageControllerCalls!("uimSystemApps", "SystemApp", "server"));
