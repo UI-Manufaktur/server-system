@@ -39,7 +39,7 @@ router // Pages
 		.get("/login2", &uimLogin2Page)
 		.get("/register", &uimRegister)
 		.get("/logout", &uimLogout)
-		.get("/server", &uimServer)
+		//.get("/server", &uimServer)
 		.get("/sites", &uimSites);
 
 	router // actions
@@ -59,8 +59,8 @@ router // Pages
 		foreach(name; dbTentant.collectionNames) {
 			debug writeln("uimEntityRegistry name:", name, " path:", name);
 		
-			if (auto entityTemplate = uimEntityRegistry[name]) {
-				debug writeln("entityid = ", uimEntityRegistry[name].id);
+			if (auto entityTemplate = EntityRegistry[name]) {
+				debug writeln("entityid = ", EntityRegistry[name].id);
 		
 				dbTentant[name].entityTemplate(entityTemplate);
 	}}}
